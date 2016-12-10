@@ -1,0 +1,129 @@
+<%= form_for(@application) do |f| %>
+  <% if @application.errors.any? %>
+    <div id="error_explanation" style="max-width: 400px">
+      <p>Älä jätä kenttiä tyhjiksi!</p>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+
+    <tr>
+      <div class="field">
+        <td>
+          Etunimi
+        </td>
+        <td>
+          <%= f.text_field :firstname, :size => 40 %>
+        </td>
+      </div>
+    </tr>
+
+    <tr>
+      <div class="field">
+        <td>
+          Sukunimi
+        </td>
+        <td>
+          <%= f.text_field :surename, :size => 40  %>
+        </td>
+      </div>
+    </tr>
+
+     <tr>
+      <div class="field">
+        <td>
+          Osoite
+        </td>
+        <td>
+          <%= f.text_field :street, :size => 40 %>
+        </td>
+      </div>
+    </tr>   
+
+    <tr>
+      <div class="field">
+        <td>
+          Postinumero
+        </td>
+        <td>
+          <%= f.text_field :zip, :size => 40 %>
+        </td>
+      </div>
+    </tr>
+
+     <tr>
+      <div class="field">
+        <td>
+          Postitoimipaikka
+        </td>
+        <td>
+          <%= f.text_field :city, :size => 40 %>
+        </td>
+      </div>
+    </tr>   
+
+     <tr>
+      <div class="field">
+        <td>
+          Puhelinnumero
+        </td>
+        <td>
+          <%= f.text_field :phone, :size => 40  %>
+        </td>
+      </div>
+    </tr>   
+
+     <tr>
+      <div class="field">
+        <td>
+          Sähköpostiosoite
+        </td>
+        <td>
+          <%= f.text_field :email, :size => 40  %>
+        </td>
+      </div>
+    </tr>       
+
+    <tr>
+      <td colspan="2">
+        Nuorisojäseniltä (35 v tai alle) syntymäaika (pv.kk.vuosi)
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <div class="field">
+        <td>
+          
+        </td>
+        <td>
+           <%= f.text_field :born, :size => 40 %>
+        </td>
+      </div>
+    </tr>  
+
+    <tr>
+      <td colspan="2">
+        Perhejäseniä pyydetään ilmoittamaan muiden samassa<br> osoitteessa asuvien jäsenten nimi /nimet:
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <div class="field">
+        <td>
+          
+        </td>
+        <td>
+          <%= f.text_field :family, :size => 40  %>
+        </td>
+      </div>
+    </tr>      
+
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'lähetä hakemus' %>
+  </div>
+<% end %>

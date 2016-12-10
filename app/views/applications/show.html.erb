@@ -1,0 +1,43 @@
+<head>
+  <meta http-equiv="refresh" content="10;url=<%=request.base_url%>" />
+</head>
+
+<% if notice %>
+  <p id="notice"><%= notice.html_safe %></p>
+<% end %>
+
+<h3>Lähettämänne tiedot</h3>
+
+<p>
+  <%= @application.firstname %> <%= @application.surename %>
+</p>
+
+<p>
+  <%= @application.street %> <br>
+  <%= @application.zip %> <%= @application.city %>
+</p>
+
+<p>
+  <em>Sähköposti:</em> <%= @application.email %>
+</p>
+
+<% unless @application.phone.empty? %>
+  <p>
+    <em>Puhelinnumero:</em>
+    <%= @application.phone %>
+  </p>
+<% end %>
+
+<% unless @application.born.empty? %>
+  <p>
+    <em>Syntymäaika:</em>
+    <%= @application.born %>
+  </p>
+<% end %>
+
+<% unless @application.family.empty? %>
+  <p>
+    <em>Perheenjäsenet:</em>
+    <%= @application.family %>
+  </p>
+<% end %>
