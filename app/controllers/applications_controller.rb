@@ -26,6 +26,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
 
     if @application.save
+      send_email
       redirect_to @application, notice: "Jäsenhakemus lähetetty!<br><br> Lähetämme teille lisätietoja muutaman viikon kuluessa"
     else
       render :new 
@@ -38,12 +39,22 @@ class ApplicationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def send_email
+      subject = "[SWS] new member"
+      msg_body = @application.mail_for_sws
+      reciever = "mluukkai@iki.fi"
+
+      begin
+        NotificationMailer.email("mluukkai@iki.fi", reciever, msg_body, subject).deliver 
+      rescue
+        raise "email error"
+      end
+    end
+
     def set_application
       @application = Application.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
       params.require(:application).permit(:firstname, :surename, :street, :zip, :city, :phone, :email, :born, :family)
     end
