@@ -14,14 +14,15 @@
       <th>Email</th>
       <th>Born</th>
       <th>Family</th>
-      <th colspan="3"></th>
+      <th>Created</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @applications.each do |application| %>
       <tr>
-        <td><%= application.firstname %></td>
+        <td><%= link_to application.firstname, application %></td>
         <td><%= application.surename %></td>
         <td><%= application.street %></td>
         <td><%= application.zip %></td>
@@ -30,8 +31,7 @@
         <td><%= application.email %></td>
         <td><%= application.born %></td>
         <td><%= application.family %></td>
-        <td><%= link_to 'Show', application %></td>
-        <td><%= link_to 'Edit', edit_application_path(application) %></td>
+        <td><%= application.created_at.in_time_zone("Helsinki") %></td>
         <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

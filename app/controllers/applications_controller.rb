@@ -4,7 +4,7 @@ class ApplicationsController < ApplicationController
   http_basic_authenticate_with name: ENV['USER'], password: ENV['PASSWORD'], only: [ :index, :destroy ]
 
   def index
-    @applications = Application.all
+    @applications = Application.all.reverse
   end
 
   def show
