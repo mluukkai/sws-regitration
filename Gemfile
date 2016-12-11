@@ -40,4 +40,6 @@ gem 'puma'
 gem 'pg'
 gem 'rollbar'
 gem 'rails_12factor'
-
+gem 'httparty'
+gem 'sidekiq'
+gem 'redis'

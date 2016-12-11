@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20161210120605) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
-  enable_extension "hstore"
-  enable_extension "unaccent"
-  enable_extension "pgcrypto"
-  enable_extension "plperl"
-
   create_table "applications", force: :cascade do |t|
     t.string   "firstname"
     t.string   "surename"

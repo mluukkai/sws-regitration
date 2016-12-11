@@ -12,7 +12,7 @@ class ApplicationsController < ApplicationController
 
   def new
     @application = Application.new
-    if false # Rails.env.development?
+    if Rails.env.development?
       @application.firstname = "Pekka"
       @application.surename = "Mikkola"
       @application.street = "Erätie 3 a 34"
@@ -27,6 +27,7 @@ class ApplicationsController < ApplicationController
 
     if @application.save
       send_email
+      MailWorker.perform_in(60.seconds, @application.id)
       redirect_to @application, notice: "Jäsenhakemus lähetetty!<br><br> Lähetämme teille lisätietoja muutaman viikon kuluessa"
     else
       render :new 

@@ -22,4 +22,15 @@ class Application < ActiveRecord::Base
 
     result.join("\n") 
   end 
+
+  def mail_json
+    {
+      firstname: firstname,
+      surename: surename,
+      street: street,
+      zip: zip,
+      city: city,
+      email: email
+    }.to_json
+  end
 end
